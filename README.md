@@ -32,6 +32,24 @@ An autonomous AI agent that generates custom parsers for bank statement PDFs usi
    python -c "from custom_parsers.icici_parser import parse; print(parse('data/icici/icici sample.pdf').head())"
    ```
 
+## ⚡ 60-Second Demo
+
+Run the complete evaluation demo that goes from fresh clone to green pytest in under 60 seconds:
+
+```bash
+./demo-60s.sh
+```
+
+This script demonstrates:
+- Fresh clone from GitHub
+- Dependency installation
+- Environment configuration  
+- Agent architecture verification
+- Complete test suite execution
+- Parser contract validation
+
+**Expected result: ✅ Complete demo in ~16 seconds (target: ≤60s)**
+
 ## 🏗️ Agent Architecture
 
 The agent uses a **LangGraph-based workflow** with six interconnected nodes that autonomously generate, test, and fix PDF parsers through an intelligent feedback loop:
@@ -109,19 +127,21 @@ OUTPUT: custom_parsers/icici_parser.py with parse(pdf_path) -> DataFrame
 ```
 ai-agent-challenge/
 ├── agent.py                 # Main agent orchestrator
-├── pdf_analyzer.py          # PDF structure analysis
-├── parser_generator.py      # LLM-based code generation
-├── test_runner.py          # Automated testing framework
+├── demo-60s.sh             # 60-second evaluation demo script
+├── .env.example            # Environment configuration template
+├── .gitignore              # Git ignore patterns
+├── requirements.txt        # Python dependencies
 ├── custom_parsers/         # Generated parser modules
+│   ├── __init__.py         # Package declaration
 │   └── icici_parser.py     # ICICI bank parser (generated)
 ├── tests/                  # Test suite
-│   ├── test_icici_parser.py
-│   └── test_agent.py
+│   ├── __init__.py
+│   └── test_icici_parser.py
 ├── data/                   # Sample data
 │   └── icici/
 │       ├── icici sample.pdf
 │       └── result.csv
-└── requirements.txt
+└── README.md               # Project documentation
 ```
 
 ## 🎯 Features
@@ -177,6 +197,13 @@ GOOGLE_MODEL=gemini-1.5-pro python agent.py --target icici
 - `--verbose` / `-v`: Enable verbose logging and debug output
 
 ## 🧪 Testing
+
+### 🎯 Evaluation Demo (≤60 seconds)
+Run the complete evaluation demo that meets the assignment criteria:
+```bash
+./demo-60s.sh
+```
+**Expected result**: Fresh clone → Green pytest in ~16 seconds
 
 ### Run All Tests
 ```bash
